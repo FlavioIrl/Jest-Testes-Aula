@@ -4,22 +4,21 @@ import { renderizaComProvider } from '../../../utils/tests'
 import Produto from '..'
 
 const jogo = {
-    id: 2,
-    categoria: 'RPG',
-    imagem: '',
-    plataformas: ['Windows', 'PS5', 'XBOX Series S/X'],
-    preco: 199.9,
-    precoAntigo: 299.9,
-    titulo: 'Hogwarts Legacy'
-  }
+  id: 2,
+  categoria: 'RPG',
+  imagem: '',
+  plataformas: ['Windows', 'PS5', 'XBOX Series S/X'],
+  preco: 199.9,
+  precoAntigo: 299.9,
+  titulo: 'Hogwarts Legacy'
+}
 
 describe('Testes para o componente produto', () => {
   test('Deve rendenizar corretamente', () => {
-    
     renderizaComProvider(<Produto game={jogo} />)
     expect(screen.getByText('Hogwads Legacy')).toBeInTheDocument()
   })
-//esse \/ é uma cópia desse /\
+  //esse \/ é uma cópia desse /\
   test('Deve Adicionar um item ao carrinho', () => {
     const { store } = renderizaComProvider(<Produto game={jogo} />)
     const botao = screen.getByTestId('btn-adicionar-produto')
